@@ -1,3 +1,5 @@
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -32,6 +34,12 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+
+        config.plugins.push(
+          new StyleLintPlugin({
+            syntax: 'scss'
+          })
+        )
       }
     }
   }
