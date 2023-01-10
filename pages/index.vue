@@ -1,7 +1,6 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
+      <Header/>
       <h1 class="title">
         allaggregate
       </h1>
@@ -18,44 +17,48 @@
           target="_blank"
           class="button--grey">GitHub</a>
       </div>
-    </div>
   </section>
 </template>
 
-<script>
-import AppLogo from '~/components/AppLogo.vue'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import Header from '../components/Header.vue'
 
-export default {
+@Component({ 
   components: {
-    AppLogo
+    Header
   }
+})
+
+export default class Index extends Vue {
+
 }
 </script>
 
 <style>
 .container {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   text-align: center;
 }
 
 .title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   display: block;
+  color: #35495e;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  font-family: Quicksand, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   letter-spacing: 1px;
 }
 
 .subtitle {
+  padding-bottom: 15px;
+  color: #526488;
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
   word-spacing: 5px;
-  padding-bottom: 15px;
 }
 
 .links {
