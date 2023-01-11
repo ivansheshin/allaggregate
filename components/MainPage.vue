@@ -10,16 +10,7 @@
 </template>
 
 <script lang="ts">
-import Header from './Header.vue'
-import { Vue, Component } from 'nuxt-property-decorator'
 
-@Component({
-  components: { Header },
-})
-
-export default class MainPage extends Vue {
-
-}
 </script>
 
 <style>

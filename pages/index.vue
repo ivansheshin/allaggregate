@@ -1,6 +1,5 @@
 <template>
-  <section class="container">
-      <Header/>
+  <div>
       <h1 class="title">
         allaggregate
       </h1>
@@ -17,7 +16,7 @@
           target="_blank"
           class="button--grey">GitHub</a>
       </div>
-  </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -36,14 +35,6 @@ export default class Index extends Vue {
 </script>
 
 <style>
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  text-align: center;
-}
-
 .title {
   display: block;
   color: #35495e;
