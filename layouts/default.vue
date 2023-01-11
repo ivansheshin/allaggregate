@@ -26,7 +26,8 @@ export default {
 }
 
 .container {
-  z-index: 100;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
