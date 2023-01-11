@@ -3,8 +3,5 @@
       "stylelint-config-standard",
       "stylelint-config-recommended-vue",
       "stylelint-config-rational-order"  
-    ],
-    "plugins": [
-        "stylelint-scss"
     ]
 }

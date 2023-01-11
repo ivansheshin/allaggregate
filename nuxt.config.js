@@ -28,6 +28,7 @@ module.exports = {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/style-resources'
   ],
 }
 
