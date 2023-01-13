@@ -20,18 +20,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import Header from '../components/Header.vue'
+import Vue from 'vue'
 
-@Component({ 
-  components: {
-    Header
-  }
+export default Vue.extend({
+  name: 'Auth',
 })
-
-export default class Index extends Vue {
-
-}
 </script>
 
 <style>
