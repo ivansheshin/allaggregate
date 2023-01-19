@@ -20,7 +20,9 @@ module.exports = {
     '~/assets/common.css'
   ],
   loading: { color: '#3B8070' },
-  build: {},
+  build: {
+    postcss: null
+  },
 
   buildModules: [
     '@nuxt/typescript-build',
