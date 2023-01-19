@@ -14,8 +14,8 @@
     "style:vue": "stylelint ./**/*.vue"
   },
   "dependencies": {
-    "nuxt": "^2.15.0",
-    "nuxt-property-decorator": "^2.9.1"
+    "@babel/eslint-parser": "^7.19.1",
+    "nuxt": "^2.15.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.0",
@@ -24,7 +24,6 @@
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/stylelint-module": "^4.1.0",
-    "babel-eslint": "^10.0.1",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",

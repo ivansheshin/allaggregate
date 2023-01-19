@@ -1,4 +1,4 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   head: {
@@ -12,23 +12,19 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
-  build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.plugins.push(
-          new StyleLintPlugin({
-            syntax: 'scss'
-          })
-        )
-      }
-    }
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
   },
+  loading: { color: '#3B8070' },
+  build: {},
 
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources'
   ],
+  modules: [
+    '@nuxtjs/eslint-module'
+  ]
 }
-
