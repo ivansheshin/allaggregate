@@ -16,6 +16,9 @@ module.exports = {
     name: 'fade',
     mode: 'out-in'
   },
+  css: [
+    '~/assets/common.css'
+  ],
   loading: { color: '#3B8070' },
   build: {},
 
