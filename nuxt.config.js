@@ -28,6 +28,7 @@ export default {
     '@nuxtjs/style-resources'
   ],
   modules: [
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/axios'
   ]
 }
