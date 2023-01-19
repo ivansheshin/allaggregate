@@ -20,7 +20,7 @@ export default Vue.extend({
   }
 })
 </script>
-<style>
+<style scoped>
 .container {
   position: relative;
   z-index: 1;
