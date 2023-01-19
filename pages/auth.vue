@@ -11,6 +11,9 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Auth',
+  validate (context) {
+    console.log(context)
+    return true
+  }
 })
 </script>
