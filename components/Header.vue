@@ -1,13 +1,13 @@
 <template>
   <header class="header">
-    <NuxtLink class="auth" to="/">
+    <NuxtLink active-class="active" class="auth" to="/">
       AllAggregate (нужно норм название)
     </NuxtLink>
     <nav class="nav">
-      <NuxtLink class="auth" to="/films">
+      <NuxtLink no-prefetch active-class="active" class="auth" to="/films">
         Фильмы
       </NuxtLink>
-      <NuxtLink class="auth" to="/auth">
+      <NuxtLink no-prefetch active-class="active" class="auth" to="/auth">
         Авторизация
       </NuxtLink>
     </nav>
@@ -57,5 +57,9 @@ export default Vue.extend({
 .auth:focus {
   color: #fff;
   background-color: #141414;
+}
+
+.active {
+  background-color: red;
 }
 </style>
