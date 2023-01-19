@@ -21,12 +21,6 @@ export default Vue.extend({
 })
 </script>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   position: relative;
   z-index: 1;
