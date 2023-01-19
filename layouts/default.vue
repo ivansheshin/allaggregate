@@ -4,7 +4,7 @@
     <main>
       <img class="capybara" src="../assets/capybara.jpg">
       <section class="container">
-        <nuxt/>
+        <nuxt />
       </section>
     </main>
   </div>
@@ -17,7 +17,7 @@ import Header from '../components/Header.vue'
 export default Vue.extend({
   components: {
     Header
-  },
+  }
 })
 </script>
 <style>

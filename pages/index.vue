@@ -33,7 +33,6 @@ export default Vue.extend({
   color: #35495e;
   font-weight: 300;
   font-size: 100px;
-  font-family: Quicksand, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   letter-spacing: 1px;
 }
 
