@@ -1,5 +1,3 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin')
-
 module.exports = {
   head: {
     title: 'allaggregate',
