@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <Header />
+    <AppHeader />
     <main>
       <img class="capybara" src="../assets/capybara.jpg">
       <section class="container">
@@ -12,11 +12,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Header from '../components/Header.vue'
+import AppHeader from '../components/AppHeader.vue'
 
 export default Vue.extend({
   components: {
-    Header
+    AppHeader
   }
 })
 </script>
