@@ -32,14 +32,4 @@ export default Vue.extend({
   margin: 0 auto;
   text-align: center;
 }
-
-.capybara {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0.3;
-}
 </style>
