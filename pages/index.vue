@@ -21,14 +21,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'Auth'
-})
-</script>
-
 <style>
 .title {
   display: block;
