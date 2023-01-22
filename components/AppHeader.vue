@@ -7,7 +7,7 @@
       <NuxtLink no-prefetch active-class="active" class="auth" to="/films">
         Фильмы
       </NuxtLink>
-      <NuxtLink no-prefetch active-class="active" class="auth" to="/auth">
+      <NuxtLink no-prefetch active-class="active" class="auth" to="/register">
         Авторизация
       </NuxtLink>
     </nav>
