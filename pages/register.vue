@@ -17,7 +17,7 @@
             <input id="duplicate_password" v-model="duplicate_password" type="password" name="password">
           </div>
         </div>
-        <button type="submit" @click="toRegister">
+        <button type="button" @click.prevent="toRegister">
           Зарегаться хошь?
         </button>
       </form>
@@ -53,6 +53,9 @@ export default Vue.extend({
     toRegister () {
       if (!this.isCorrectPassword) { return }
       this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          console.log(2)
+        })
     }
   }
 })
