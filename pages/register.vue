@@ -2,7 +2,7 @@
   <div>
     <h2>Регистрация пейдж</h2>
     <section>
-      <form class="form">
+      <form class="form" @submit.prevent="toRegister">
         <div class="inputs">
           <div>
             <label for="name">Емейл</label>
@@ -17,7 +17,7 @@
             <input id="duplicate_password" v-model="duplicate_password" type="password" name="password">
           </div>
         </div>
-        <button type="button" @click.prevent="toRegister">
+        <button type="button">
           Зарегаться хошь?
         </button>
       </form>

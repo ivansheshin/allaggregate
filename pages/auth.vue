@@ -2,7 +2,7 @@
   <div>
     <h2>Авторизация пейдж</h2>
     <section>
-      <form class="form">
+      <form class="form" @submit.prevent="toLogIn">
         <div class="inputs">
           <div>
             <label for="name">Емейл</label>
@@ -13,7 +13,7 @@
             <input id="password" v-model="password" type="password" name="password">
           </div>
         </div>
-        <button type="button" @click.prevent="toLogIn">
+        <button type="button">
           Авторизоваться хошь?
         </button>
       </form>
