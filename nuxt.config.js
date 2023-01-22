@@ -43,7 +43,7 @@ export default {
       measurementId: 'G-PBDJNQXRP4'
     },
     services: {
-      auth: true // Just as example. Can be any other service.
+      auth: true
     }
   }
 }
