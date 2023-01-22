@@ -8,6 +8,9 @@
         Фильмы
       </NuxtLink>
       <NuxtLink no-prefetch active-class="active" class="auth" to="/register">
+        Регистрация
+      </NuxtLink>
+      <NuxtLink no-prefetch active-class="active" class="auth" to="/auth">
         Авторизация
       </NuxtLink>
     </nav>
