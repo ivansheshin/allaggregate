@@ -46,12 +46,12 @@ export default Vue.extend({
   },
   computed: {
     isCorrectPassword () {
-      return this.password === this.duplicate_password
+      return this.password.trim() === this.duplicate_password.trim()
     }
   },
   methods: {
     toRegister () {
-      if (!this.isCorrectPassword) { return }
+      if (!this.isCorrectPassword || !this.password.trim()) { return }
       this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
           console.log(2)
