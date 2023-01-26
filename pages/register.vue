@@ -17,7 +17,7 @@
             <input id="duplicate_password" v-model="duplicate_password" type="password" name="password">
           </div>
         </div>
-        <button type="button">
+        <button type="submit">
           Зарегаться хошь?
         </button>
       </form>
@@ -28,7 +28,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -45,16 +45,16 @@ export default Vue.extend({
     }
   },
   computed: {
-    isCorrectPassword () {
+    isCorrectPassword (): boolean {
       return this.password.trim() === this.duplicate_password.trim()
     }
   },
   methods: {
-    toRegister () {
+    toRegister (): void {
       if (!this.isCorrectPassword || !this.password.trim()) { return }
       this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          console.log(2)
+          this.$router.replace({ path: '/' })
         })
     }
   }
