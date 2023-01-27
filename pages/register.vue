@@ -32,7 +32,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'auth',
+  layout: 'authorization',
   validate () {
     // console.log(context)
     return true
