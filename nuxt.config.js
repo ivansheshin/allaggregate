@@ -25,25 +25,7 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/style-resources',
-    [
-      'nuxt-i18n',
-      {
-        vueI18nLoader: true,
-        defaultLocale: 'fr',
-        locales: [
-          {
-            code: 'en',
-            name: 'English'
-          },
-          {
-            code: 'ru',
-            name: 'Русский'
-          }
-        ],
-        vueI18n: i18n
-      }
-    ]
+    '@nuxtjs/style-resources'
   ],
   modules: [
     '@nuxtjs/eslint-module',

@@ -54,7 +54,7 @@ export default Vue.extend({
       if (!this.isCorrectPassword || !this.password.trim()) { return }
       this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          this.$router.replace({ path: '/' })
+          this.$router.replace({ path: '/lk' })
         })
     }
   }

@@ -12,13 +12,11 @@
         </li>
       </ul>
     </nav>
-    <LanguageInput />
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import LanguageInput from './LanguageInput.vue'
 
 interface HeaderLinks {
   name: string | undefined,
@@ -27,9 +25,6 @@ interface HeaderLinks {
 
 export default Vue.extend({
   name: 'AppHeader',
-  components: {
-    LanguageInput
-  },
   data () {
     const linksInfo: HeaderLinks[] = []
     return {

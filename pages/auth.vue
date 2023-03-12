@@ -13,7 +13,7 @@
             <input id="password" v-model="password" type="password" name="password">
           </div>
         </div>
-        <button type="button">
+        <button type="submit">
           Авторизоваться хошь?
         </button>
       </form>
@@ -32,14 +32,15 @@ export default Vue.extend({
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      uid: ''
     }
   },
   methods: {
     toLogIn () {
       this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          console.log(1)
+          this.uid = this.$fire.currentUser.uid
         })
     }
   }
