@@ -4,12 +4,13 @@
       AllAggregate (нужно норм название)
     </NuxtLink>
     <nav class="nav">
-      <NuxtLink no-prefetch active-class="active" class="auth" to="/films">
-        Фильмы
-      </NuxtLink>
-      <NuxtLink no-prefetch active-class="active" class="auth" to="/auth">
-        Авторизация
-      </NuxtLink>
+      <ul class="nav-list">
+        <li v-for="link in linksInfo" :key="link.name" no-prefetch active-class="active">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="link.path">
+            {{ link.name }}
+          </NuxtLink>
+        </li>
+      </ul>
     </nav>
   </header>
 </template>
@@ -17,8 +18,28 @@
 <script lang="ts">
 import Vue from 'vue'
 
+interface HeaderLinks {
+  name: string | undefined,
+  path: string
+}
+
 export default Vue.extend({
-  name: 'AppHeader'
+  name: 'AppHeader',
+  data () {
+    const linksInfo: HeaderLinks[] = []
+    return {
+      linksInfo
+    }
+  },
+  created () {
+    this.$router.options.routes?.forEach((route) => {
+      if (route.name === 'index' || undefined) { return }
+      this.linksInfo.push({
+        name: route.name,
+        path: route.path
+      })
+    })
+  }
 })
 
 </script>
@@ -36,6 +57,12 @@ export default Vue.extend({
   padding: 0 20px;
   color: #fff;
   background-color: #c3195d;
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
 
 .nav {

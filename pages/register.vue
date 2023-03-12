@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Авторизация пейдж</h2>
+    <h2>Регистрация пейдж</h2>
     <section>
-      <form class="form" @submit.prevent="toLogIn">
+      <form class="form" @submit.prevent="toRegister">
         <div class="inputs">
           <div>
             <label for="name">Емейл</label>
@@ -12,9 +12,13 @@
             <label for="password">Пассворд</label>
             <input id="password" v-model="password" type="password" name="password">
           </div>
+          <div>
+            <label for="duplicate_password">Павтари Пассворд</label>
+            <input id="duplicate_password" v-model="duplicate_password" type="password" name="password">
+          </div>
         </div>
         <button type="submit">
-          Авторизоваться хошь?
+          Зарегаться хошь?
         </button>
       </form>
     </section>
@@ -24,23 +28,33 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
   layout: 'authorization',
+  validate () {
+    // console.log(context)
+    return true
+  },
   data () {
     return {
       email: '',
       password: '',
-      uid: ''
+      duplicate_password: ''
+    }
+  },
+  computed: {
+    isCorrectPassword (): boolean {
+      return this.password.trim() === this.duplicate_password.trim()
     }
   },
   methods: {
-    toLogIn () {
-      this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
+    toRegister (): void {
+      if (!this.isCorrectPassword || !this.password.trim()) { return }
+      this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          this.uid = this.$fire.currentUser.uid
+          this.$router.replace({ path: '/lk' })
         })
     }
   }

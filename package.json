@@ -5,7 +5,7 @@
   "author": "Ivan Sheshin <ivashesh@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "nuxt --port 3001",
+    "dev": "nuxt-ts --port 3001",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -16,7 +16,10 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@nuxtjs/axios": "^5.13.6",
-    "nuxt": "^2.15.0"
+    "@nuxtjs/firebase": "^8.2.2",
+    "firebase": "^9.16.0",
+    "nuxt": "^2.15.0",
+    "nuxt-i18n": "^6.28.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.0",
