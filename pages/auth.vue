@@ -2,19 +2,19 @@
   <div>
     <h2>Авторизация пейдж</h2>
     <section>
-      <form class="form">
+      <form class="form" @submit.prevent="toLogIn">
         <div class="inputs">
           <div>
-            <label for="name">Нейм</label>
-            <input id="name" type="text" name="name">
+            <label for="name">Емейл</label>
+            <input id="name" v-model="email" type="email" name="name">
           </div>
           <div>
             <label for="password">Пассворд</label>
-            <input id="password" type="password" name="password">
+            <input id="password" v-model="password" type="password" name="password">
           </div>
         </div>
         <button type="submit">
-          Зайти хошь?
+          Авторизоваться хошь?
         </button>
       </form>
     </section>
@@ -26,12 +26,26 @@
 
 <script>
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
-  layout: 'auth',
-  validate () {
-    // console.log(context)
-    return true
+  layout: 'authorization',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    ...mapActions(['setUserId']),
+    toLogIn () {
+      this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          this.setUserId(data.user.uid)
+          localStorage.setItem('UID', data.user.uid)
+          this.$router.replace({ path: '/' })
+        })
+    }
   }
 })
 </script>

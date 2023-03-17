@@ -3,22 +3,65 @@
     <NuxtLink active-class="active" class="auth" to="/">
       AllAggregate (нужно норм название)
     </NuxtLink>
-    <nav class="nav">
-      <NuxtLink no-prefetch active-class="active" class="auth" to="/films">
-        Фильмы
-      </NuxtLink>
-      <NuxtLink no-prefetch active-class="active" class="auth" to="/auth">
-        Авторизация
-      </NuxtLink>
+    <nav>
+      <ul class="nav-list">
+        <li v-if="!getUserInfo">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/auth'">
+            Authorization
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/films'">
+            Films
+          </NuxtLink>
+        </li>
+        <li v-if="getUserInfo">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/lk'">
+            Profile
+          </NuxtLink>
+        </li>
+        <li v-if="!getUserInfo">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/register'">
+            Register
+          </NuxtLink>
+        </li>
+        <li v-if="getUserInfo">
+          <button class="auth" @click="signOut">
+            Logout
+          </button>
+        </li>
+      </ul>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters, mapActions } from 'vuex'
+
+interface HeaderLinks {
+  name: string | undefined,
+  path: string
+}
 
 export default Vue.extend({
-  name: 'AppHeader'
+  name: 'AppHeader',
+  data () {
+    const linksInfo: HeaderLinks[] = []
+    return {
+      linksInfo
+    }
+  },
+  computed: {
+    ...mapGetters(['getUserInfo'])
+  },
+  methods: {
+    ...mapActions(['resetUserId']),
+    signOut () {
+      this.resetUserId()
+      this.$fire.auth.signOut()
+    }
+  }
 })
 
 </script>
@@ -38,9 +81,11 @@ export default Vue.extend({
   background-color: #c3195d;
 }
 
-.nav {
+.nav-list {
   display: flex;
   gap: 20px;
+  align-items: center;
+  list-style: none;
 }
 
 .auth {

@@ -10,6 +10,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  plugins: [{
+    src: '~/plugins/getUser.js',
+    mode: 'client'
+  }],
   pageTransition: {
     name: 'fade',
     mode: 'out-in'
@@ -29,6 +33,21 @@ export default {
   ],
   modules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/axios'
-  ]
+    '@nuxtjs/axios',
+    '@nuxtjs/firebase'
+  ],
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyB8okItt1pa7YC1Ai0ZpJ_zFoEuV8F_PnE',
+      authDomain: 'allaggregate.firebaseapp.com',
+      projectId: 'allaggregate',
+      storageBucket: 'allaggregate.appspot.com',
+      messagingSenderId: '414095723031',
+      appId: '1:414095723031:web:527ba769e03e062b012a52',
+      measurementId: 'G-PBDJNQXRP4'
+    },
+    services: {
+      auth: true
+    }
+  }
 }
