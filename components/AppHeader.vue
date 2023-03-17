@@ -55,9 +55,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters(['getUserInfo'])
   },
-  mounted () {
-    console.log(!!this.getUserInfo)
-  },
   methods: {
     ...mapActions(['resetUserId']),
     signOut () {
