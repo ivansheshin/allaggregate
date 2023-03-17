@@ -26,6 +26,7 @@
 
 <script>
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   layout: 'authorization',
@@ -37,10 +38,13 @@ export default Vue.extend({
     }
   },
   methods: {
+    ...mapActions(['setUserId']),
     toLogIn () {
       this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.uid = this.$fire.currentUser.uid
+        .then((data) => {
+          this.setUserId(data.user.uid)
+          this.uid = data.user.uid
+          this.$router.replace({ path: '/' })
         })
     }
   }

@@ -3,12 +3,32 @@
     <NuxtLink active-class="active" class="auth" to="/">
       AllAggregate (нужно норм название)
     </NuxtLink>
-    <nav class="nav">
+    <nav>
       <ul class="nav-list">
-        <li v-for="link in linksInfo" :key="link.name" no-prefetch active-class="active">
-          <NuxtLink no-prefetch active-class="active" class="auth" :to="link.path">
-            {{ link.name }}
+        <li v-if="!getUserInfo.UID">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/auth'">
+            Authorization
           </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/films'">
+            Films
+          </NuxtLink>
+        </li>
+        <li v-if="getUserInfo.UID">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/lk'">
+            Profile
+          </NuxtLink>
+        </li>
+        <li v-if="!getUserInfo.UID">
+          <NuxtLink no-prefetch active-class="active" class="auth" :to="'/register'">
+            Register
+          </NuxtLink>
+        </li>
+        <li v-if="getUserInfo.UID">
+          <button class="auth" @click="signOut">
+            Logout
+          </button>
         </li>
       </ul>
     </nav>
@@ -17,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters, mapActions } from 'vuex'
 
 interface HeaderLinks {
   name: string | undefined,
@@ -31,14 +52,15 @@ export default Vue.extend({
       linksInfo
     }
   },
-  created () {
-    this.$router.options.routes?.forEach((route) => {
-      if (route.name === 'index' || undefined) { return }
-      this.linksInfo.push({
-        name: route.name,
-        path: route.path
-      })
-    })
+  computed: {
+    ...mapGetters(['getUserInfo'])
+  },
+  methods: {
+    ...mapActions(['resetUserId']),
+    signOut () {
+      this.resetUserId()
+      this.$fire.auth.signOut()
+    }
   }
 })
 
@@ -62,12 +84,8 @@ export default Vue.extend({
 .nav-list {
   display: flex;
   gap: 20px;
+  align-items: center;
   list-style: none;
-}
-
-.nav {
-  display: flex;
-  gap: 20px;
 }
 
 .auth {

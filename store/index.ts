@@ -13,11 +13,15 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const mutations: MutationTree<RootState> = {
-  SET_USER_ID: (state, UID: string) => (state.userInfo.UID = UID)
+  SET_USER_ID: (state, UID: string) => (state.userInfo.UID = UID),
+  RESET_USER_ID: state => (state.userInfo.UID = '')
 }
 
 export const actions: ActionTree<RootState, RootState> = {
   setUserId ({ commit }, UID) {
     commit('SET_USER_ID', UID)
+  },
+  resetUserId ({ commit }) {
+    commit('RESET_USER_ID')
   }
 }
