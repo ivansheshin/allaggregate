@@ -33,8 +33,7 @@ export default Vue.extend({
   data () {
     return {
       email: '',
-      password: '',
-      uid: ''
+      password: ''
     }
   },
   methods: {
@@ -43,7 +42,7 @@ export default Vue.extend({
       this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           this.setUserId(data.user.uid)
-          this.uid = data.user.uid
+          localStorage.setItem('UID', data.user.uid)
           this.$router.replace({ path: '/' })
         })
     }
