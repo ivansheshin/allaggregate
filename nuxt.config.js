@@ -10,6 +10,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  plugins: [{
+    src: '~/plugins/getUser.js',
+    mode: 'client'
+  }],
   pageTransition: {
     name: 'fade',
     mode: 'out-in'
