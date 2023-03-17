@@ -33,8 +33,8 @@ import Vue from 'vue'
 
 export default Vue.extend({
   layout: 'authorization',
+  middleware: 'auth',
   validate () {
-    // console.log(context)
     return true
   },
   data () {

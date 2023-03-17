@@ -5,7 +5,7 @@
     </NuxtLink>
     <nav>
       <ul class="nav-list">
-        <li v-if="!getUserInfo.UID">
+        <li v-if="!getUserInfo">
           <NuxtLink no-prefetch active-class="active" class="auth" :to="'/auth'">
             Authorization
           </NuxtLink>
@@ -15,17 +15,17 @@
             Films
           </NuxtLink>
         </li>
-        <li v-if="getUserInfo.UID">
+        <li v-if="getUserInfo">
           <NuxtLink no-prefetch active-class="active" class="auth" :to="'/lk'">
             Profile
           </NuxtLink>
         </li>
-        <li v-if="!getUserInfo.UID">
+        <li v-if="!getUserInfo">
           <NuxtLink no-prefetch active-class="active" class="auth" :to="'/register'">
             Register
           </NuxtLink>
         </li>
-        <li v-if="getUserInfo.UID">
+        <li v-if="getUserInfo">
           <button class="auth" @click="signOut">
             Logout
           </button>
@@ -54,6 +54,9 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters(['getUserInfo'])
+  },
+  mounted () {
+    console.log(!!this.getUserInfo)
   },
   methods: {
     ...mapActions(['resetUserId']),

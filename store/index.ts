@@ -1,20 +1,18 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex'
 
 export const state = () => ({
-  userInfo: {
-    UID: ''
-  }
+  userIDInfo: ''
 })
 
 export type RootState = ReturnType<typeof state>
 
 export const getters: GetterTree<RootState, RootState> = {
-  getUserInfo: state => state.userInfo
+  getUserInfo: state => state.userIDInfo
 }
 
 export const mutations: MutationTree<RootState> = {
-  SET_USER_ID: (state, UID: string) => (state.userInfo.UID = UID),
-  RESET_USER_ID: state => (state.userInfo.UID = '')
+  SET_USER_ID: (state, UID: string) => (state.userIDInfo = UID),
+  RESET_USER_ID: state => (state.userIDInfo = '')
 }
 
 export const actions: ActionTree<RootState, RootState> = {
